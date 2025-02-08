@@ -50,10 +50,11 @@ public class Student {
         if (testScores.isEmpty()) {
             return 0.0;
         }
-        return testScores.stream()
-                .mapToDouble(TestScore::getTestScore)
-                .average()
-                .orElse(0.0);
+        double totalScore = 0.0;
+        for (TestScore testScore : testScores) {
+            totalScore += testScore.getTestScore();
+        }
+        return totalScore / testScores.size(); // forget to divide by number of test scores to get the wrong result
     }
 
     @Override
