@@ -57,3 +57,8 @@ The application includes several validation rules:
 
 - JUnit Jupiter 5.10.0 (for testing)
 - Maven Surefire Plugin 3.1.2 (for running tests)
+
+## Credit
+This demo application was built with the help of:
+* [JetBrains AI Assistant](https://www.jetbrains.com/ai/)
+* [JetBrains Junie](https://www.jetbrains.com/junie/)
