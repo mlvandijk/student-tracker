@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,18 +38,19 @@ public class Main {
             }
 
             String[] parts = line.split(",");
-            if (parts.length >= 4) {
+            if (parts.length >= 5) {
                 String studentId = parts[0];
                 String studentName = parts[1];
                 String testName = parts[2];
                 double testScore = Double.parseDouble(parts[3]);
+                LocalDate testDate = LocalDate.parse(parts[4]);
 
                 // Get or create student
                 Student student = students.computeIfAbsent(studentId,
                     id -> new Student(id, studentName));
 
                 // Add test score
-                student.addTestScore(new TestScore(testName, testScore));
+                student.addTestScore(new TestScore(testName, testScore, testDate));
             }
         }
     }

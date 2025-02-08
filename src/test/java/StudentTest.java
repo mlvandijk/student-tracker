@@ -1,8 +1,10 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import java.time.LocalDate;
 import java.util.List;
 
 public class StudentTest {
+    private final LocalDate testDate = LocalDate.of(2024, 1, 1);
 
     @Test
     public void testValidConstruction() {
@@ -67,7 +69,7 @@ public class StudentTest {
     @Test
     public void testAddTestScore() {
         Student student = new Student("S123", "John Doe");
-        TestScore score = new TestScore("Math", 8.5);
+        TestScore score = new TestScore("Math", 8.5, testDate);
         student.addTestScore(score);
 
         assertEquals(1, student.getTestScores().size());
@@ -83,11 +85,11 @@ public class StudentTest {
     @Test
     public void testTestScoresImmutability() {
         Student student = new Student("S123", "John Doe");
-        TestScore score = new TestScore("Math", 8.5);
+        TestScore score = new TestScore("Math", 8.5, testDate);
         student.addTestScore(score);
 
         List<TestScore> scores = student.getTestScores();
-        assertThrows(UnsupportedOperationException.class, () -> scores.add(new TestScore("Physics", 9.0)));
+        assertThrows(UnsupportedOperationException.class, () -> scores.add(new TestScore("Physics", 9.0, testDate)));
     }
 
     @Test
@@ -111,16 +113,16 @@ public class StudentTest {
     @Test
     public void testGetAverageScoreSingleScore() {
         Student student = new Student("S123", "John Doe");
-        student.addTestScore(new TestScore("Math", 8.5));
+        student.addTestScore(new TestScore("Math", 8.5, testDate));
         assertEquals(8.5, student.getAverageScore(), 0.001);
     }
 
     @Test
     public void testGetAverageScoreMultipleScores() {
         Student student = new Student("S123", "John Doe");
-        student.addTestScore(new TestScore("Math", 8.5));
-        student.addTestScore(new TestScore("Physics", 7.5));
-        student.addTestScore(new TestScore("Chemistry", 9.0));
+        student.addTestScore(new TestScore("Math", 8.5, testDate));
+        student.addTestScore(new TestScore("Physics", 7.5, testDate));
+        student.addTestScore(new TestScore("Chemistry", 9.0, testDate));
         // Average should be (8.5 + 7.5 + 9.0) / 3 = 8.333...
         assertEquals(8.333, student.getAverageScore(), 0.001);
     }

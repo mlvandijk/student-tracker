@@ -28,8 +28,8 @@ mvn clean install
 
 1. Prepare your input CSV file with the following format:
    ```
-   studentId,studentName,testName,testScore
-   S123,John Doe,Math,8.5
+   studentId,studentName,testName,testScore,date
+   S123,John Doe,Math,8.5,2024-01-01
    ```
 
 2. Run the application:
@@ -45,7 +45,8 @@ The application includes several validation rules:
 - Student IDs and names cannot be null or empty
 - Test names cannot be null or empty
 - Test scores must be between 0 and 10
-- CSV file must contain at least 4 columns per row
+- Test dates cannot be null
+- CSV file must contain at least 5 columns per row
 
 ## Project Structure
 
