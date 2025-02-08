@@ -107,4 +107,34 @@ public class TestScoreTest {
         score.setDate(newDate);
         assertEquals(newDate, score.getDate());
     }
+
+    @Test
+    public void testInvalidDateFormat() {
+        assertThrows(java.time.format.DateTimeParseException.class, 
+            () -> LocalDate.parse("2024-13-01")); // Invalid month
+        assertThrows(java.time.format.DateTimeParseException.class, 
+            () -> LocalDate.parse("2024-01-32")); // Invalid day
+        assertThrows(java.time.format.DateTimeParseException.class, 
+            () -> LocalDate.parse("2024/01/01")); // Wrong format
+        assertThrows(java.time.format.DateTimeParseException.class, 
+            () -> LocalDate.parse("01-01-2024")); // Wrong format
+        assertThrows(java.time.format.DateTimeParseException.class, 
+            () -> LocalDate.parse("not-a-date")); // Invalid format
+    }
+
+    @Test
+    public void testFutureDate() {
+        LocalDate futureDate = LocalDate.of(2100, 1, 1);
+        assertThrows(IllegalArgumentException.class, () -> new TestScore("Test1", 8.5, futureDate));
+
+        TestScore score = new TestScore("Test1", 8.5, LocalDate.now());
+        assertThrows(IllegalArgumentException.class, () -> score.setDate(futureDate));
+    }
+
+    @Test
+    public void testVeryOldDate() {
+        LocalDate oldDate = LocalDate.of(1800, 1, 1);
+        TestScore score = new TestScore("Test1", 8.5, oldDate);
+        assertEquals(oldDate, score.getDate());
+    }
 }
