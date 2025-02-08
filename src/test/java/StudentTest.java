@@ -13,26 +13,24 @@ public class StudentTest {
     }
 
     @Test
-    public void testNullId() {
+    public void testNullIdThrowsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> new Student(null, "John Doe"));
     }
 
     @Test
-    public void testEmptyId() {
+    public void testEmptyIdThrowsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> new Student("", "John Doe"));
-
         assertThrows(IllegalArgumentException.class, () -> new Student("   ", "John Doe"));
     }
 
     @Test
-    public void testNullName() {
+    public void testNullNameThrowsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> new Student("S123", null));
     }
 
     @Test
-    public void testEmptyName() {
+    public void testEmptyNameThrowsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> new Student("S123", ""));
-
         assertThrows(IllegalArgumentException.class, () -> new Student("S123", "   "));
     }
 
@@ -44,7 +42,7 @@ public class StudentTest {
     }
 
     @Test
-    public void testSetInvalidId() {
+    public void testSetInvalidIdThrowsIllegalArgumentException() {
         Student student = new Student("S123", "John Doe");
         assertThrows(IllegalArgumentException.class, () -> student.setStudentId(null));
         assertThrows(IllegalArgumentException.class, () -> student.setStudentId(""));
@@ -59,7 +57,7 @@ public class StudentTest {
     }
 
     @Test
-    public void testSetInvalidName() {
+    public void testSetInvalidNameThrowsIllegalArgumentException() {
         Student student = new Student("S123", "John Doe");
         assertThrows(IllegalArgumentException.class, () -> student.setStudentName(null));
         assertThrows(IllegalArgumentException.class, () -> student.setStudentName(""));

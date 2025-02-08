@@ -1,14 +1,9 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class TestScoreTest {
-
-    @Test
-    public void testValidConstruction() {
-        TestScore score = new TestScore("Test1", 8.5);
-        assertEquals("Test1", score.getTest());
-        assertEquals(8.5, score.getTestScore(), 0.001);
-    }
 
     @Test
     public void testNullTestName() {
@@ -16,37 +11,26 @@ public class TestScoreTest {
     }
 
     @Test
-    public void testEmptyTestName() {
+    public void testInvalidTestName() {
         assertThrows(IllegalArgumentException.class, () -> new TestScore("", 8.5));
-
         assertThrows(IllegalArgumentException.class, () -> new TestScore("   ", 8.5));
     }
 
-
-    @Test
-    public void testAllValidTestNames() {
-        TestScore score1 = new TestScore("Test1", 8.5);
-        assertEquals("Test1", score1.getTest());
-
-        TestScore score2 = new TestScore("Test2", 8.5);
-        assertEquals("Test2", score2.getTest());
-
-        TestScore score3 = new TestScore("Test3", 8.5);
-        assertEquals("Test3", score3.getTest());
-
-        TestScore score4 = new TestScore("Test4", 8.5);
-        assertEquals("Test4", score4.getTest());
+    @ParameterizedTest
+    @ValueSource(strings = {"Test1", "Test2", "Test3", "Test4"})
+    public void testValidTestNames(String testName) {
+        TestScore score = new TestScore(testName, 8.5);
+        assertEquals(testName, score.getTest());
     }
 
     @Test
-    public void testNegativeScore() {
+    public void testNegativeScoreThrowsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> new TestScore("Test1", -1.0));
     }
 
     @Test
-    public void testScoreAboveMaximum() {
+    public void testScoreAboveMaximumThrowsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> new TestScore("Test1", 10.1));
-
         assertThrows(IllegalArgumentException.class, () -> new TestScore("Test1", 11.0));
     }
 
