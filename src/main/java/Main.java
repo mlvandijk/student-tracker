@@ -32,12 +32,10 @@ public class Main {
                 }
             }
 
-            // Print all students and their scores
+            // Print all students and their average scores
             for (Student student : students.values()) {
                 System.out.println("Student: " + student.getStudentName() + " (ID: " + student.getStudentId() + ")");
-                for (TestScore score : student.getTestScores()) {
-                    System.out.println("  " + score.getTest() + ": " + score.getTestScore());
-                }
+                System.out.printf("  Average Score: %.2f%n", student.getAverageScore());
                 System.out.println();
             }
 

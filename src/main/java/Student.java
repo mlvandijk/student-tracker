@@ -45,4 +45,14 @@ public class Student {
         }
         this.testScores.add(testScore);
     }
+
+    public double getAverageScore() {
+        if (testScores.isEmpty()) {
+            return 0.0;
+        }
+        return testScores.stream()
+                .mapToDouble(TestScore::getTestScore)
+                .average()
+                .orElse(0.0);
+    }
 }

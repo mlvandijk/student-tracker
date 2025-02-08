@@ -7,6 +7,7 @@ A Java application for tracking student test scores. This application allows you
 - Read student test scores from CSV files
 - Validate and store student information
 - Track multiple test scores per student
+- Calculate and display average test scores per student
 - Generate summary reports of student performance
 - Input validation for all data fields
 

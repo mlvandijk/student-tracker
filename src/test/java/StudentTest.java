@@ -103,4 +103,27 @@ public class StudentTest {
         assertEquals("S456", student.getStudentId());
         assertEquals("Jane Doe", student.getStudentName());
     }
+
+    @Test
+    public void testGetAverageScoreNoScores() {
+        Student student = new Student("S123", "John Doe");
+        assertEquals(0.0, student.getAverageScore(), 0.001);
+    }
+
+    @Test
+    public void testGetAverageScoreSingleScore() {
+        Student student = new Student("S123", "John Doe");
+        student.addTestScore(new TestScore("Math", 8.5));
+        assertEquals(8.5, student.getAverageScore(), 0.001);
+    }
+
+    @Test
+    public void testGetAverageScoreMultipleScores() {
+        Student student = new Student("S123", "John Doe");
+        student.addTestScore(new TestScore("Math", 8.5));
+        student.addTestScore(new TestScore("Physics", 7.5));
+        student.addTestScore(new TestScore("Chemistry", 9.0));
+        // Average should be (8.5 + 7.5 + 9.0) / 3 = 8.333...
+        assertEquals(8.333, student.getAverageScore(), 0.001);
+    }
 }
