@@ -54,7 +54,7 @@ public class Student {
         for (TestScore testScore : testScores) {
             totalScore += testScore.getTestScore();
         }
-        return totalScore / testScores.size(); // forget to divide by number of test scores to get the wrong result
+        return totalScore;
     }
 
     @Override
