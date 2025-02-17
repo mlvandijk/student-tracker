@@ -20,14 +20,6 @@ public class Main {
 
     }
 
-    private static void printStudentScore(Map<String, Student> students) {
-        for (Student student : students.values()) {
-            System.out.println("Student: " + student.getStudentName() + " (ID: " + student.getStudentId() + ")");
-            System.out.printf("  Average Score: %.2f%n", student.getAverageScore());
-            System.out.println();
-        }
-    }
-
     private static void processStudentScores(List<String> lines, Map<String, Student> students) {
         // Skip header line if it exists
         boolean header = true;
@@ -52,6 +44,14 @@ public class Main {
                 // Add test score
                 student.addTestScore(new TestScore(testName, testScore, testDate));
             }
+        }
+    }
+
+    private static void printStudentScore(Map<String, Student> students) {
+        for (Student student : students.values()) {
+            System.out.println("Student: " + student.getStudentName() + " (ID: " + student.getStudentId() + ")");
+            System.out.printf("  Average Score: %.2f%n", student.getAverageScore());
+            System.out.println();
         }
     }
 }
