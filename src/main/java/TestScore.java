@@ -27,9 +27,6 @@ public class TestScore {
     }
 
     public void setTestScore(double testScore) {
-        if (testScore < 0) {
-            throw new IllegalArgumentException("Test score cannot be negative");
-        }
         if (testScore > 10) {
             throw new IllegalArgumentException("Test score cannot be greater than 10");
         }
