@@ -34,8 +34,8 @@ public class Main {
                 String studentId = parts[0];
                 String studentName = parts[1];
                 String testName = parts[2];
-                double testScore = Double.parseDouble(parts[3]);
-                LocalDate testDate = LocalDate.parse(parts[4]);
+                var testScore = Double.parseDouble(parts[3]);
+                var testDate = LocalDate.parse(parts[3]);
 
                 // Get or create student
                 Student student = students.computeIfAbsent(studentId,
