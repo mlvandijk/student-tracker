@@ -49,4 +49,13 @@ public class TestScore {
         }
         this.date = date;
     }
+
+    @Override
+    public String toString() {
+        return "TestScore{" +
+                "test='" + test + '\'' +
+                ", testScore=" + testScore +
+                ", date=" + date +
+                '}';
+    }
 }

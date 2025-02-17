@@ -55,4 +55,13 @@ public class Student {
                 .average()
                 .orElse(0.0);
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId='" + studentId + '\'' +
+                ", studentName='" + studentName + '\'' +
+                ", testScores=" + testScores +
+                '}';
+    }
 }
