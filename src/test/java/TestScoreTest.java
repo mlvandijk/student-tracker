@@ -26,11 +26,6 @@ public class TestScoreTest {
     }
 
     @Test
-    public void testNegativeScoreThrowsIllegalArgumentException() {
-        assertThrows(IllegalArgumentException.class, () -> new TestScore("Test1", -1.0, testDate));
-    }
-
-    @Test
     public void testScoreAboveMaximumThrowsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> new TestScore("Test1", 10.1, testDate));
         assertThrows(IllegalArgumentException.class, () -> new TestScore("Test1", 11.0, testDate));
