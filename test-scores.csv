@@ -27,10 +27,10 @@ StudentID,Student Name,Test,Test Score,Date
 7,Liam Martinez,Test2,9.8,2024-01-02
 7,Liam Martinez,Test3,8.2,2024-01-03
 7,Liam Martinez,Test4,7.6,2024-01-04
-8,Olivia Garcia,Test1,7.3,2024-01-01
-8,Olivia Garcia,Test2,6.8,2024-01-02
-8,Olivia Garcia,Test3,7.5,2024-01-03
-8,Olivia Garcia,Test4,8.0,2024-01-04
+8,Olivia Garcia,Test1,-7.3,2024-01-01
+8,Olivia Garcia,Test2,-6.8,2024-01-02
+8,Olivia Garcia,Test3,-7.5,2024-01-03
+8,Olivia Garcia,Test4,-8.0,2024-01-04
 9,Benjamin Lee,Test1,5.4,2024-01-01
 9,Benjamin Lee,Test2,7.6,2024-01-02
 9,Benjamin Lee,Test3,6.9,2024-01-03
