@@ -1,5 +1,6 @@
 This application is used in the following content:
-* [Debugging Java code in IntelliJ IDEA](https://www.youtube.com/watch?v=V5iQ1FyRtBo)
+* Video: [Debugging Java code in IntelliJ IDEA](https://www.youtube.com/watch?v=V5iQ1FyRtBo)
+* Blog post: [Debugging Java code in IntelliJ IDEA](https://blog.jetbrains.com/idea/2025/04/debugging-java-code-in-intellij-idea/)
 
 If you'd like to follow along, please check out the branch `debugger`.
 
